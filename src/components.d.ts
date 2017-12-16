@@ -36,6 +36,36 @@ declare global {
 
 
 import {
+  MockBluetoothStrip as MockBluetoothStrip
+} from './components/bluetooth-strip/mock-bluetooth-strip';
+
+declare global {
+  interface HTMLMockBluetoothStripElement extends MockBluetoothStrip, HTMLElement {
+  }
+  var HTMLMockBluetoothStripElement: {
+    prototype: HTMLMockBluetoothStripElement;
+    new (): HTMLMockBluetoothStripElement;
+  };
+  interface HTMLElementTagNameMap {
+    "mock-bluetooth-strip": HTMLMockBluetoothStripElement;
+  }
+  interface ElementTagNameMap {
+    "mock-bluetooth-strip": HTMLMockBluetoothStripElement;
+  }
+  namespace JSX {
+    interface IntrinsicElements {
+      "mock-bluetooth-strip": JSXElements.MockBluetoothStripAttributes;
+    }
+  }
+  namespace JSXElements {
+    export interface MockBluetoothStripAttributes extends HTMLAttributes {
+      
+    }
+  }
+}
+
+
+import {
   MyApp as MyApp
 } from './components/my-app/my-app';
 
