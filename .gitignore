@@ -1,6 +1,7 @@
 dist/
 !www/favicon.ico
 www/
+*.pem
 
 *~
 *.sw[mnpcod]

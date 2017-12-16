@@ -48,28 +48,31 @@ export class MyApp {
   async runSequence(command: number) {
     await this.strip.runCommand(command);
   }
+  get welcome() {
+    return (
+      <nav>
+        <h1>Click Santa</h1>
+        <img src="assets/santa.jpg" onClick={() => this.connect()} />
+      </nav>
+    );
+  }
+  get connections() {
+    return (
+      <main>
+        <input type="color" onChange={e => this.updateColor(e)} />
+        <div>
+          {this.dynamics.map((val, i) => {
+            return <button onClick={() => this.runSequence(i)}>{val}</button>;
+          })}
+        </div>
+      </main>
+    );
+  }
   render() {
     return (
       <div>
         {this.mock ? <mock-bluetooth-strip /> : <bluetooth-strip />}
-        {!this.connected && (
-          <nav>
-            <h1>Click Santa</h1>
-            <img src="assets/santa.jpg" onClick={() => this.connect()} />
-          </nav>
-        )}
-        {this.connected && (
-          <main>
-            <input type="color" onChange={e => this.updateColor(e)} />
-            <div>
-              {this.dynamics.map((val, i) => {
-                return (
-                  <button onClick={() => this.runSequence(i)}>{val}</button>
-                );
-              })}
-            </div>
-          </main>
-        )}
+        {this.connected ? this.connections : this.welcome}
       </div>
     );
   }
