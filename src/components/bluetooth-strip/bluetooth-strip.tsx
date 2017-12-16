@@ -1,9 +1,14 @@
 import { Component, Method } from "@stencil/core";
 
+export interface IBluetoothStrip {
+  connect(): Promise<void>;
+  setColor(red: number, green: number, blue: number): Promise<void>;
+  runCommand(commandNumber: number): Promise<void>;
+}
 @Component({
   tag: "bluetooth-strip"
 })
-export class BluetoothStrip {
+export class BluetoothStrip implements IBluetoothStrip {
   ch: BluetoothRemoteGATTCharacteristic;
   @Method()
   async connect() {
@@ -27,8 +32,12 @@ export class BluetoothStrip {
     const r = new Uint8Array([0x56, green, red, blue, 0x00, 0xaa]);
     await this.ch.writeValue(r);
   }
+
   @Method()
-  async white() {
-    await this.setColor(255, 255, 255);
+  async runCommand(commandNumber: number) {
+    const speed = 0x10;
+    const command = commandNumber + 0x26;
+    const r = new Uint8Array([0xbb, command, speed, 0x44]);
+    await this.ch.writeValue(r);
   }
 }
