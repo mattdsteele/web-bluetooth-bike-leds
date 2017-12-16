@@ -14,22 +14,22 @@ export class MyApp {
   @State() connected = false;
 
   dynamics = [
-    "green pulse",
-    "red pulse",
-    "blue pulse",
-    "yellow",
-    "pink",
-    "teal",
-    "white",
-    "7. green/red pulse",
-    "green/blue",
-    "blue/red",
-    "10. all color strobe",
-    "green strobe",
-    "red strobe",
-    "blue",
-    "yellow",
-    "teal"
+    "Green pulse",
+    "Red pulse",
+    "Blue pulse",
+    "Yellow pulse",
+    "Pink pulse",
+    "Teal pulse",
+    "White pulse",
+    "Green/Red",
+    "Green/Blue",
+    "Blue/Red",
+    "All Color 💥",
+    "Green",
+    "Red",
+    "Blue",
+    "Yellow",
+    "Teal"
   ];
 
   async connect() {
@@ -59,7 +59,17 @@ export class MyApp {
   get connections() {
     return (
       <main>
-        <input type="color" onChange={e => this.updateColor(e)} />
+        <label htmlFor="color">
+          <div class="color-picker">
+            <h2>🚲</h2>
+          </div>
+        </label>
+        <input
+          name="color"
+          id="color"
+          type="color"
+          onChange={e => this.updateColor(e)}
+        />
         <div>
           {this.dynamics.map((val, i) => {
             return <button onClick={() => this.runSequence(i)}>{val}</button>;
