@@ -3,12 +3,11 @@
   "private": true,
   "version": "0.0.1",
   "description": "Stencil App Starter",
-  "files": [
-    "dist/"
-  ],
+  "files": ["dist/"],
   "scripts": {
-    "build": "stencil build --prerender",
-    "dev": "sd concurrent \"stencil build --dev --watch\" \"stencil-dev-server\" ",
+    "build": "stencil build",
+    "dev":
+      "sd concurrent \"stencil build --dev --watch\" \"stencil-dev-server\" ",
     "serve": "stencil-dev-server",
     "start": "npm run dev",
     "test": "jest --no-cache",
@@ -38,15 +37,10 @@
   "homepage": "https://github.com/ionic-team/stencil",
   "jest": {
     "transform": {
-      "^.+\\.(ts|tsx)$": "<rootDir>/node_modules/@stencil/core/testing/jest.preprocessor.js"
+      "^.+\\.(ts|tsx)$":
+        "<rootDir>/node_modules/@stencil/core/testing/jest.preprocessor.js"
     },
     "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(tsx?|jsx?)$",
-    "moduleFileExtensions": [
-      "ts",
-      "tsx",
-      "js",
-      "json",
-      "jsx"
-    ]
+    "moduleFileExtensions": ["ts", "tsx", "js", "json", "jsx"]
   }
 }

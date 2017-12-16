@@ -13,6 +13,25 @@ export class MyApp {
   @Element() el: HTMLElement;
   @State() connected = false;
 
+  dynamics = [
+    "green pulse",
+    "red pulse",
+    "blue pulse",
+    "yellow",
+    "pink",
+    "teal",
+    "white",
+    "7. green/red pulse",
+    "green/blue",
+    "blue/red",
+    "10. all color strobe",
+    "green strobe",
+    "red strobe",
+    "blue",
+    "yellow",
+    "teal"
+  ];
+
   async connect() {
     const strip = (this.el.shadowRoot.querySelector(
       this.mock ? "mock-bluetooth-strip" : "bluetooth-strip"
@@ -42,11 +61,9 @@ export class MyApp {
           <main>
             <input type="color" onChange={e => this.updateColor(e)} />
             <div>
-              {[...Array(16)].map((_, i) => i).map(val => {
+              {this.dynamics.map((val, i) => {
                 return (
-                  <button onClick={() => this.runSequence(val)}>
-                    Run Sequence {val}
-                  </button>
+                  <button onClick={() => this.runSequence(i)}>{val}</button>
                 );
               })}
             </div>

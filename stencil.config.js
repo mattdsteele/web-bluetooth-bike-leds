@@ -1,6 +1,7 @@
 exports.config = {
-  bundles: [{ components: ["my-app"] }],
-  collections: [{ name: "@stencil/router" }]
+  bundles: [
+    { components: ["bluetooth-strip", "my-app", "mock-bluetooth-strip"] }
+  ]
 };
 
 exports.devServer = {
