@@ -8,7 +8,7 @@ import hexRgb from "hex-rgb";
   shadow: true
 })
 export class MyApp {
-  mock = true;
+  mock = false;
   strip: IBluetoothStrip;
   @Element() el: HTMLElement;
   @State() connected = false;
@@ -68,7 +68,7 @@ export class MyApp {
           name="color"
           id="color"
           type="color"
-          onChange={e => this.updateColor(e)}
+          onInput={e => this.updateColor(e)}
         />
         <div>
           {this.dynamics.map((val, i) => {
