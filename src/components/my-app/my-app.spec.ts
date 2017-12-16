@@ -1,17 +1,22 @@
-import { render } from '@stencil/core/testing';
-import { MyApp } from './my-app';
+import { render, flush } from "@stencil/core/testing";
+import { MyApp } from "./my-app";
 
-describe('my-app', () => {
-  it('should build', () => {
+describe("my-app", () => {
+  it("should build", () => {
     expect(new MyApp()).toBeTruthy();
   });
 
-  describe('rendering', () => {
+  describe.skip("rendering", () => {
+    let element;
     beforeEach(async () => {
-      await render({
+      element = await render({
         components: [MyApp],
-        html: '<my-app></my-app>'
+        html: "<my-app></my-app>"
       });
+    });
+    it("builds", async () => {
+      await flush(element);
+      expect(element).toMatchSnapshot();
     });
   });
 });
