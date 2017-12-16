@@ -6,6 +6,10 @@
 }
 nav {
   background-color: black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100vh;
 }
 img {
   max-width: 100%;
@@ -27,8 +31,9 @@ h1 {
 }
 
 button {
+  font-size: 7vw;
   width: 100%;
-  padding: 15px;
+  padding: 12px;
   margin-top: 10px;
   border: 1px solid black;
 }
