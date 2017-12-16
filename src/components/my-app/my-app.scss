@@ -1,15 +1,17 @@
-header {
-  background: #5851ff;
-  color: white;
-  height: 56px;
-  display: flex;
-  align-items: center;
-  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+:host {
+  display: block;
+}
+nav {
+  background-color: black;
+}
+img {
+  max-width: 100%;
 }
 
 h1 {
-  font-size: 1.4rem;
+  color: white;
+  font-size: 18vw;
   font-weight: 500;
-  color: #fff;
-  padding: 0 12px;
+  margin: 0;
+  width: 100%;
 }

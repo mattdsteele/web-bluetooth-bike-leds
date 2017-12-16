@@ -51,12 +51,13 @@ export class MyApp {
   render() {
     return (
       <div>
-        <header>
-          <h1>Stencil App Starter</h1>
-        </header>
         {this.mock ? <mock-bluetooth-strip /> : <bluetooth-strip />}
-        <button onClick={() => this.connect()}>Connect</button>
-
+        {!this.connected && (
+          <nav>
+            <h1>Click Santa</h1>
+            <img src="assets/santa.jpg" onClick={() => this.connect()} />
+          </nav>
+        )}
         {this.connected && (
           <main>
             <input type="color" onChange={e => this.updateColor(e)} />
