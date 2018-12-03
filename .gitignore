@@ -1,7 +1,6 @@
 dist/
 !www/favicon.ico
 www/
-*.pem
 
 *~
 *.sw[mnpcod]
@@ -13,6 +12,7 @@ log.txt
 *.sublime-project
 *.sublime-workspace
 
+.stencil/
 .idea/
 .vscode/
 .sass-cache/

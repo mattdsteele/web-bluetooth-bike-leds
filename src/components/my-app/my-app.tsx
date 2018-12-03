@@ -1,40 +1,40 @@
-import { Component, Element, State } from "@stencil/core";
-import { IBluetoothStrip } from "../bluetooth-strip/bluetooth-strip";
-import hexRgb from "hex-rgb";
+import { Component, Element, State } from '@stencil/core';
+import { IBluetoothStrip } from '../bluetooth-strip/interfaces';
+import { hexRgb } from './hex-rgb';
 
 @Component({
-  tag: "my-app",
-  styleUrl: "my-app.scss",
+  tag: 'my-app',
+  styleUrl: 'my-app.css',
   shadow: true
 })
 export class MyApp {
-  mock = false;
+  mock = true;
   strip: IBluetoothStrip;
   @Element() el: HTMLElement;
   @State() connected = false;
 
   dynamics = [
-    "Green pulse",
-    "Red pulse",
-    "Blue pulse",
-    "Yellow pulse",
-    "Pink pulse",
-    "Teal pulse",
-    "White pulse",
-    "Green/Red",
-    "Green/Blue",
-    "Blue/Red",
-    "All Color 💥",
-    "Green",
-    "Red",
-    "Blue",
-    "Yellow",
-    "Teal"
+    'Green pulse',
+    'Red pulse',
+    'Blue pulse',
+    'Yellow pulse',
+    'Pink pulse',
+    'Teal pulse',
+    'White pulse',
+    'Green/Red',
+    'Green/Blue',
+    'Blue/Red',
+    'All Color 💥',
+    'Green',
+    'Red',
+    'Blue',
+    'Yellow',
+    'Teal'
   ];
 
   async connect() {
     const strip = (this.el.shadowRoot.querySelector(
-      this.mock ? "mock-bluetooth-strip" : "bluetooth-strip"
+      this.mock ? 'mock-bluetooth-strip' : 'bluetooth-strip'
     ) as any) as IBluetoothStrip;
     await strip.connect();
     this.connected = true;

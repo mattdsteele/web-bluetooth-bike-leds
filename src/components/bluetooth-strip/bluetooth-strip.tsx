@@ -1,22 +1,18 @@
-import { Component, Method } from "@stencil/core";
+import { Component, Method } from '@stencil/core';
+import { IBluetoothStrip } from './interfaces';
 
-export interface IBluetoothStrip {
-  connect(): Promise<void>;
-  setColor(red: number, green: number, blue: number): Promise<void>;
-  runCommand(commandNumber: number): Promise<void>;
-}
 @Component({
-  tag: "bluetooth-strip"
+  tag: 'bluetooth-strip'
 })
 export class BluetoothStrip implements IBluetoothStrip {
   ch: BluetoothRemoteGATTCharacteristic;
   @Method()
   async connect() {
     const device = await navigator.bluetooth.requestDevice({
-      optionalServices: ["0000ffe5-0000-1000-8000-00805f9b34fb"],
+      optionalServices: ['0000ffe5-0000-1000-8000-00805f9b34fb'],
       filters: [
         {
-          name: "LEDnet-8B6AF1C9"
+          name: 'LEDnet-8B6AF1C9'
         }
       ]
     });
