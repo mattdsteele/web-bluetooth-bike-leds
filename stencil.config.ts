@@ -5,9 +5,10 @@ import { Config } from '@stencil/core';
 export const config: Config = {
   outputTargets: [
     {
-      type: 'www'
+      type: 'www',
+      baseUrl: '/bike-delights-2018/',
       // uncomment the following line to disable service workers in production
-      // serviceWorker: null
+      serviceWorker: null
     }
   ]
 };

@@ -8,7 +8,7 @@ import { hexRgb } from './hex-rgb';
   shadow: true
 })
 export class MyApp {
-  mock = true;
+  mock = false;
   strip: IBluetoothStrip;
   @Element() el: HTMLElement;
   @State() connected = false;
