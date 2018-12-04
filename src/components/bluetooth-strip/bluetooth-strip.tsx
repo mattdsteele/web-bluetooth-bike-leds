@@ -5,17 +5,21 @@ import { IBluetoothStrip } from './interfaces';
   tag: 'bluetooth-strip'
 })
 export class BluetoothStrip implements IBluetoothStrip {
+  private acceptEverything = true;
+  private serviceUUID = '0000ffe5-0000-1000-8000-00805f9b34fb';
   ch: BluetoothRemoteGATTCharacteristic;
   @Method()
   async connect() {
-    const device = await navigator.bluetooth.requestDevice({
-      optionalServices: ['0000ffe5-0000-1000-8000-00805f9b34fb'],
-      filters: [
-        {
-          name: 'LEDnet-8B6AF1C9'
+    const connectionOptions: RequestDeviceOptions = this.acceptEverything
+      ? {
+          optionalServices: [this.serviceUUID],
+          acceptAllDevices: true
         }
-      ]
-    });
+      : {
+          optionalServices: [this.serviceUUID],
+          filters: [{ namePrefix: 'LED' }]
+        };
+    const device = await navigator.bluetooth.requestDevice(connectionOptions);
     const server = await device.gatt.connect();
     const service = await server.getPrimaryService(0xffe5);
     const ch = await service.getCharacteristic(0xffe9);
