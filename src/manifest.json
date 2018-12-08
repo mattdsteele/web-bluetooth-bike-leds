@@ -1,7 +1,7 @@
 {
   "name": "Bike DeLights",
   "short_name": "Bike DeLights",
-  "start_url": "/bike-lights",
+  "start_url": "/",
   "display": "standalone",
   "icons": [
     {

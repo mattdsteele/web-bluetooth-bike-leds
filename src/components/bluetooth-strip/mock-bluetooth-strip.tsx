@@ -1,12 +1,15 @@
 import { Component, Method } from '@stencil/core';
-import { IBluetoothStrip } from './interfaces';
 
 @Component({
   tag: 'mock-bluetooth-strip'
 })
-export class MockBluetoothStrip implements IBluetoothStrip {
+export class MockBluetoothStrip {
   @Method()
-  async connect() {}
+  async connect() {
+    return new Promise<void>(res => {
+      setTimeout(res, 500);
+    });
+  }
 
   @Method()
   async setColor(_red: number, _green: number, _blue: number) {}

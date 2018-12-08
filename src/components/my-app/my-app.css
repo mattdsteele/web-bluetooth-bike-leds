@@ -15,7 +15,7 @@ img {
   max-width: 100%;
 }
 
-input[type="color"] {
+input[type='color'] {
   -webkit-appearance: default-button;
   width: 100%;
   margin: 0;
@@ -47,7 +47,19 @@ button {
   border: 1px solid black;
   text-align: center;
   font-size: 9vw;
-  h2 {
-    margin: 0;
-  }
+}
+.color-picker h2 {
+  margin: 0;
+}
+
+.loading {
+  text-align: center;
+}
+.loading h1 {
+  color: black;
+  font-size: 13vw;
+}
+
+.loading span {
+  font-size: 40vw;
 }

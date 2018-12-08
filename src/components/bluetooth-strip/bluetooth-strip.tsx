@@ -1,10 +1,9 @@
 import { Component, Method } from '@stencil/core';
-import { IBluetoothStrip } from './interfaces';
 
 @Component({
   tag: 'bluetooth-strip'
 })
-export class BluetoothStrip implements IBluetoothStrip {
+export class BluetoothStrip {
   private acceptEverything = true;
   private serviceUUID = '0000ffe5-0000-1000-8000-00805f9b34fb';
   ch: BluetoothRemoteGATTCharacteristic;
